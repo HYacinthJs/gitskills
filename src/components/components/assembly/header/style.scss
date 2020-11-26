@@ -1,0 +1,34 @@
+@import "../../../theme/css";
+
+
+@mixin mixin_base(){
+
+  background-color: #438eb9;
+  //background-image:url(/assets/base/img/top.png);
+
+  $dynamic: ("night":("background-image":$day-top-image), "day":("background-image":$day-top-image));
+  @include mixin-dynamic-style($dynamic:$dynamic);
+  .title{
+    @include mixin_div_center-vertical();
+    float: left;
+    margin-left: 20px;
+    color: #fff;
+    //font-size: 24px;
+    $dynamic: ("big":("font-size":$big_font),'middle':("font-size":$middle_font),'small':("font-size":$small_font));
+    @include mixin-dynamic-style($dynamic:$dynamic);
+  }
+  .btn{
+    float: right;
+    margin-right: 20px
+  }
+  button{
+    border: 0px;
+    height: 44px;
+    border-radius: 0px;
+    //background: #0086e1;
+    background-color:rgba(0,0,0,0)
+  }
+}
+.AssemblyHeader{
+  @include mixin_base();
+}

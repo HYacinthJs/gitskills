@@ -1,0 +1,38 @@
+@import "../../../theme/css";
+
+
+@mixin mixin_base(){
+  $dynamic: ("big":("width":$big_input_textarea_width), "middle":("width":$small_input_textarea_width), "small":("width":$small_input_textarea_width));
+  @include mixin-dynamic-style($dynamic:$dynamic);
+  ::v-deep input{
+
+    $dynamic: ("big":(
+            "height":$big_input_height,
+            "line-height":$big_input_height,
+            "border":$big_input_border,
+            "border-radius":$big_input_radius,
+    ), "middle":(
+            "height":$small_input_height,
+            "line-height":$small_input_height,
+            "border":$small_input_border,
+            "border-radius":$small_input_radius,
+    ), "small":(
+            "height":$small_input_height,
+            "line-height":$small_input_height,
+            "border":$small_input_border,
+            "border-radius":$small_input_radius,
+    ));
+    @include mixin-dynamic-style($dynamic: $dynamic);
+
+  }
+  ::v-deep .el-textarea.is-disabled .el-textarea__inner{
+    color: #606266 !important;
+  }
+  ::v-deep .el-textarea__inner{
+    min-height: 140px !important;
+  }
+
+}
+.ComponentsInputTextarea{
+  @include mixin_base();
+}

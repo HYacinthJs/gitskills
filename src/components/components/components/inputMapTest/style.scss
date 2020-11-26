@@ -1,0 +1,10 @@
+@import "../../../theme/css";
+
+
+@mixin mixin_base(){
+  height: 600px;
+  width: 500px;
+}
+.ComponentsInputMapTest{
+  @include mixin_base();
+}

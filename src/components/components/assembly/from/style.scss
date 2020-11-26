@@ -1,0 +1,30 @@
+@import "../../../theme/css";
+@mixin mixin_base(){
+  .errorString{
+    color: #f56c6c;font-size: 12px;line-height: 1;padding-top: 4px;position: absolute;top: 100%;left: 0;
+  }
+
+  ::v-deep .el-form-item__content{
+    $dynamic: ("big":("line-height":$big_button_height), "middle":("line-height":$small_button_height), "small":("line-height":$small_button_height));
+    @include mixin-dynamic-style($dynamic: $dynamic);
+  }
+  ::v-deep .el-form-item__label{
+    $dynamic: ("big":("line-height":$big_button_height), "middle":("line-height":$small_button_height), "small":("line-height":$small_button_height));
+    @include mixin-dynamic-style($dynamic: $dynamic);
+  }
+  ::v-deep .el-form-item__content{
+    vertical-align: middle;
+    margin-left: 0 !important;
+    max-width: 100%;
+  }
+  ::v-deep .el-form-item {
+    vertical-align: middle;
+  }
+  .tableW {
+    width: 100%;
+  }
+
+}
+.AssemblyFrom{
+  @include mixin_base();
+}

@@ -1,0 +1,38 @@
+@import "../../../theme/css";
+
+
+@mixin mixin_base(){
+
+  ::v-deep .el-table td,::v-deep .el-table th {
+    padding: 1px 0;
+  }
+  ::v-deep .el-table__empty-text{
+    line-height: 24px;
+  }
+  ::v-deep.el-table__empty-block{
+    min-height: 24px;
+  }
+  ::v-deep.el-button{
+    padding: 5px;
+  }
+  ::v-deep.el-table__fixed-right{
+    padding-top: 19px;
+  }
+  ::v-deep.el-table .cell {
+    text-align: center;
+    padding-right: 0 !important;
+  }
+  ::v-deep .ComponentsInputTextarea{
+    display: inline-block;
+  }
+  ::v-deep .el-form-item {
+    width: 100%;
+  }
+  ::v-deep .el-form-item__content {
+    width: 100% !important;
+  }
+
+}
+.ComponentsInputTable{
+  @include mixin_base();
+}

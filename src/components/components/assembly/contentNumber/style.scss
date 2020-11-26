@@ -1,0 +1,101 @@
+@import "../../../theme/css";
+@mixin mixin_base(){
+  height: auto ;
+  margin-bottom: 10px;
+  .header{
+    width: 100%;
+    height: 42px;
+    font-weight:bold;
+    $dynamic: ("night":("background-color":$night-header-color), "day":("background-color":$day-header-color));
+    @include mixin-dynamic-style($dynamic:$dynamic);
+    $dynamic: ("big":("border-radius":$big_input_radius), "middle":("border-radius":$small_input_radius), "small":("border-radius":$small_input_radius));
+    @include mixin-dynamic-style($dynamic: $dynamic);
+    ::v-deep .title{
+      $dynamic: ("big":("font-size":$big_title_font), "middle":("font-size":$small_title_font), "small":("font-size":$small_title_font));
+      @include mixin-dynamic-style($dynamic: $dynamic);
+      margin-left: 10px;
+      float: left;
+      @include mixin_div_center-vertical();
+    }
+    .btn{
+      margin-right: 10px;
+      float: right;
+      @include mixin_div_center-vertical();
+    }
+    @include mixin_clear();
+  }
+  .content{
+    width: 100%;
+    $dynamic: ("night":("background-color":$night-menu-color), "day":("background-color":white));
+    @include mixin-dynamic-style($dynamic:$dynamic);
+
+  }
+  ::v-deep .el-table th>.cell {
+    $dynamic: ("big":(
+            "line-height":$big_table_line_height,
+            "height":$big_table_line_height
+    ), "middle":(
+            "line-height":$small_table_line_height,
+            "height":$small_table_line_height
+    ), "small":(
+            "line-height":$small_table_line_height,
+            "height":$small_table_line_height
+    ));
+    @include mixin-dynamic-style($dynamic: $dynamic);
+
+  }
+  ::v-deep .el-table .cell {
+    height: 50px;
+    line-height: 50px;
+
+  }
+  ::v-deep .el-icon-circle-close {
+    background-color: white;
+  }
+  ::v-deep .el-table td,::v-deep .el-table th {
+    //$dynamic: ("big":("padding":$big_table_line_padding), "middle":("padding":$small_table_line_padding), "small":("padding":$small_table_line_padding));
+    //@include mixin-dynamic-style($dynamic: $dynamic);
+
+  }
+  ::v-deep .el-table{
+    width: 98%;
+    margin: 0 auto;
+    $dynamic: ("big":(
+            "border-radius":$big_input_radius,
+            "font-size":$big_table_fontsize
+    ), "middle":(
+            "border-radius":$small_input_radius,
+            "font-size":$small_table_fontsize
+    ), "small":(
+            "border-radius":$small_input_radius,
+            "font-size":$small_table_fontsize
+    ));
+    @include mixin-dynamic-style($dynamic: $dynamic);
+
+  }
+  ::v-deep .el-table__fixed{
+    padding-top: 19px;
+  }
+  ::v-deep .el-table__fixed-right{
+    padding-top: 19px;
+  }
+
+
+    .footer{
+    width: 100%;
+    text-align: center;
+
+    $dynamic: ("night":("background-color":$night-menu-color), "day":("background-color":$day-menu-color));
+    @include mixin-dynamic-style($dynamic:$dynamic);
+    $dynamic: ("big":("border-radius":$big_input_radius), "middle":("border-radius":$small_input_radius), "small":("border-radius":$small_input_radius));
+    @include mixin-dynamic-style($dynamic: $dynamic);
+    .el-pagination{
+      padding:16px;
+    }
+  }
+}
+
+.AssemblyContentNumber{
+  @include mixin_base();
+}
+

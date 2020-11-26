@@ -1,0 +1,22 @@
+@import "../../../theme/css";
+@mixin mixin_base(){
+  ::v-deep .el-table--border th:nth-child(2) {
+    border-right: none !important;
+    text-align: center;
+  }
+  ::v-deep .el-table--border th:nth-child(4) {
+    border-right: none !important;
+    text-align: center;
+  }
+  ::v-deep .el-table--border td:nth-child(2) {
+    border-right: none !important;
+    text-align: center;
+  }
+  ::v-deep .el-table--border td:nth-child(4) {
+    border-right: none !important;
+    text-align: center;
+  }
+}
+.DialogTable{
+  @include mixin_base();
+}

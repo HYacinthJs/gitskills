@@ -1,0 +1,14 @@
+@import "../../../theme/css";
+@mixin mixin_base(){
+
+::v-deep .el-card__body{
+    min-height: 230px;
+  }
+
+
+}
+
+.AssemblyHomePage{
+  @include mixin_base();
+}
+

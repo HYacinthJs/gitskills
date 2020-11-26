@@ -1,0 +1,15 @@
+@import "../../../theme/css";
+
+
+@mixin mixin_base(){
+  ::v-deep .el-collapse-item__header{
+    font-weight: bold;
+  }
+  ::v-deep .el-form-item {
+    float: left;
+  }
+}
+
+.AssemblyCollapse{
+  @include mixin_base();
+}

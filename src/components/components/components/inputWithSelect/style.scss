@@ -1,0 +1,27 @@
+@import "../../../theme/css";
+@mixin mixin_base(){
+
+
+  //::v-deep .el-input__icon{
+  //  $dynamic: ("big":("line-height":$big_input_height), "middle":("line-height":$small_input_height), "small":("line-height":$small_input_height));
+  //  @include mixin-dynamic-style($dynamic: $dynamic);
+  //}
+  $dynamic: ("big":(
+          "width":$big_inputday_width,
+          "vertical-align":"middle"
+  ), "middle":(
+          "width":$small_inputday_width,
+          "vertical-align":"middle"
+  ), "small":(
+          "width":$small_inputday_width,
+          "vertical-align":"middle"
+  ));
+  @include mixin-dynamic-style($dynamic:$dynamic);
+
+
+
+
+}
+.ComponentsInputWithSelect{
+  @include mixin_base();
+}

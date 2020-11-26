@@ -1,0 +1,22 @@
+@import "../../../theme/css";
+
+
+@mixin mixin_base(){
+  background-color: white;
+  footer{
+    height: 100%;
+    width: 100%;
+    .title{
+      @include mixin_div_center-vertical();
+      color: #199cfe;
+      float: left;
+      $dynamic: ("big":("font-size":$big_font), "middle":("font-size":$small_font), "small":("font-size":$small_font));
+      @include mixin-dynamic-style($dynamic: $dynamic);
+      padding-left: 10px;
+    }
+  }
+}
+
+.AssemblyFooter{
+  @include mixin_base();
+}

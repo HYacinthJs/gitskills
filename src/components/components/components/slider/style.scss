@@ -1,0 +1,14 @@
+@import "../../../theme/css";
+
+
+@mixin mixin_base(){
+  $dynamic: ("big":("width":$big_input_width), "middle":("width":$small_input_width), "small":("width":$small_input_width));
+  @include mixin-dynamic-style($dynamic:$dynamic);
+
+}
+.ComponentsSlider{
+  ::v-deep .el-step__title {
+    font-size: initial;
+  }
+  @include mixin_base();
+}

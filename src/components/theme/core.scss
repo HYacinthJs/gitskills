@@ -1,0 +1,141 @@
+@import './class.scss';
+//设置样式
+@mixin mixin-class-base($base:()) {
+  @each $kay, $values in $base {
+    @if($kay=='my-custom'){
+      @each  $value in $values {
+        @if(type-of($value)==map){
+          @include mixin-class-base-custom2($values:$value);
+        }@else{
+          @include mixin-class-base-custom($value:$value);
+        }
+      }
+    }@else{
+      #{$kay}:#{$values};
+    }
+  }
+}
+//设置自定义样式
+@mixin mixin-class-base-custom($value:"") {
+    @if($value=='clear'){                                           //清除浮动
+      &:after {content:"."; display:block; height:0; visibility:hidden; clear:both; }
+      &:before{content:" ";display: table;}
+    }@else if($value=='shadow-1'){                                   //设置阴影效果
+      box-shadow:
+      -10px 0px 10px red,           //左边阴影
+      0px -10px 10px #000,            //上边阴影
+      10px 0px 10px green,            //右边阴影
+      0px 10px 10px blue  ;             //下边阴影
+    }@else if($value=='shadow-2'){                                 //设置阴影效果
+      box-shadow: 0 1px 10px rgba(0,0,0,.05);
+    }@else if($value=='vertical'){                                      //    垂直居中
+      @include mixin_div_center-vertical();
+    }@else if($value=='horizontal'){                                      //水平居中
+      @include mixin_div_center-horizontal();
+    }@else if($value=='vertical-horizontal'){                             //垂直水平居中
+      @include mixin_div_center-vertical-horizontal();
+    }@else if($value=='model-1'){                                         //圆角白色
+      @include mixin_div_model-1();
+    }@else if($value=='animation-1'){                                         //圆角白色
+      @include mixin_animation();
+    }@else if($value=='init-1'){                                         //圆角白色
+      @include mixin_init();
+    }
+}
+//设置自定义样式2 可以动态设置
+@mixin mixin-class-base-custom2($values:()) {
+  @each $kay, $value in $values {
+    @if($kay=='hover'){
+      &:hover {
+        @each $csskay, $cssvalue in $value {
+          #{$csskay}:#{$cssvalue};
+        }
+      }
+    }
+  }
+}
+//设置动态样式
+@mixin mixin-dynamic-style($dynamic:()) {
+  @each $kay1, $dynamic1 in $dynamic {
+    @if(type-of($dynamic1)==map and $kay1!='my-custom'){
+      @each $kay2, $dynamic2 in $dynamic1 {
+        @if(type-of($dynamic2)==map and $kay2!='my-custom'){
+          @each $kay3, $dynamic3 in $dynamic2 {
+            @if(type-of($dynamic3)==map and $kay3!='my-custom'){
+              @each $kay4, $dynamic4 in $dynamic3 {
+                @if(type-of($dynamic4)==map and $kay4!='my-custom'){
+
+                }@else{
+                  @include mixin-dynamic-style2($dynamic:((key:$kay1 $kay2 $kay3,css:$dynamic3),));
+                }
+              }
+            }@else{
+              @include mixin-dynamic-style2($dynamic:((key:$kay1 $kay2 ,css:$dynamic2),));
+            }
+          }
+        }@else{
+          @include mixin-dynamic-style2($dynamic:((key:$kay1 ,css:$dynamic1),));
+        }
+      }
+    }
+  }
+}
+//设置动态样式
+@mixin mixin-dynamic-style2($dynamic:()) {
+  @each $dynamic1 in $dynamic {
+    $list:();
+    $keys: map-get($dynamic1,"key");
+    $css: map-get($dynamic1,"css");
+    @each  $key in $keys {
+      @if($key=='big' or $key=='middle' or $key=='small'){
+        $list: append($list,data-size);
+      }@else if($key=='day' or $key=='night'){
+        $list: append($list,data-theme);
+      }@else if($key=='phone' or $key=='pc'){
+        $list: append($list,data-model);
+      }@else{
+        $list: append($list,"error");
+      }
+      $list: append($list,$key);
+    }
+    @include mixin-dynamic-style1($list:$list,$css:$css)
+  }
+}
+//设置动态样式
+@mixin mixin-dynamic-style1($list:(),$css:()) {
+  @if(length($list)==2){
+    [#{nth($list,1)}=#{nth($list,2)}] & {
+      @include mixin-class-base($base:$css);
+    }
+  }
+  @if(length($list)==4){
+    [#{nth($list,1)}=#{nth($list,2)}][#{nth($list,3)}=#{nth($list,4)}] & {
+      @include mixin-class-base($base:$css);
+    }
+  }
+  @if(length($list)==6){
+    [#{nth($list,1)}=#{nth($list,2)}][#{nth($list,3)}=#{nth($list,4)}][#{nth($list,5)}=#{nth($list,6)}] & {
+      @include mixin-class-base($base:$css);
+    }
+  }
+  @if(length($list)==8){
+    [#{nth($list,1)}=#{nth($list,2)}][#{nth($list,3)}=#{nth($list,4)}][#{nth($list,5)}=#{nth($list,6)}][#{nth($list,7)}=#{nth($list,8)}] & {
+      @include mixin-class-base($base:$css);
+    }
+  }
+  @if(length($list)==10){
+    [#{nth($list,1)}=#{nth($list,2)}][#{nth($list,3)}=#{nth($list,4)}][#{nth($list,5)}=#{nth($list,6)}][#{nth($list,7)}=#{nth($list,8)}][#{nth($list,9)}=#{nth($list,10)}] & {
+      @include mixin-class-base($base:$css);
+    }
+  }
+  @if(length($list)==12){
+    [#{nth($list,1)}=#{nth($list,2)}][#{nth($list,3)}=#{nth($list,4)}][#{nth($list,5)}=#{nth($list,6)}][#{nth($list,7)}=#{nth($list,8)}][#{nth($list,9)}=#{nth($list,10)}][#{nth($list,11)}=#{nth($list,12)}] & {
+      @include mixin-class-base($base:$css);
+    }
+  }
+}
+
+//空白类
+@mixin mixin-dynamic-theme($base:null,$dynamic:null) {
+  @include mixin-dynamic-style($dynamic:$dynamic);
+}

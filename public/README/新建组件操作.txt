@@ -1,0 +1,19 @@
+最简单
+1.只需要复制你想要创建组件的同级组件
+2.改文件夹名称和 文件夹下到model的类名 style的类名
+3.在工具类util/core.ts 的createComponents方法下复制一个case 相应修改就可以使用了
+
+例如 你想添加一个下拉框的输入组件
+1.复制当前到inputEmail   改名为inputSelect
+2.修改model的类名 为ComponentsInputSelect
+3.修改style的类名 为ComponentsInputSelect 如果不需要可以不用写
+4.core.ts 添加case
+   case 'ComponentsInputSelect':
+            Vue.component("ComponentsInputSelect", require("../../components/components/inputSelect/view.vue")["default"])
+            newComponents = new ComponentsInputSelect(data)
+            break;
+
+ 5.使用
+ contacts.ts
+ {modelName:'content',name:"text10",label:"微信号",type: 'ComponentsInput'},
+ {modelName:'content',name:"text11",label:"生日",type: 'ComponentsInputSelect'},

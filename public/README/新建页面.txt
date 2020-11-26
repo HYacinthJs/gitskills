@@ -1,0 +1,5 @@
+在项目下除fixed 文件夹 可以自行定义文件夹和文件
+1.新增页面例如sobuy项目下复制contacts.ts 改名为factory.ts
+2.使用页面在sobuy/state.ts新增
+    store.addPageBase(<Page>utils.createComponents(factory))
+页面访问地址为 factory.ts中的name  地址为  http://127.0.0.1:8082/sys_factory
