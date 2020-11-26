@@ -17,3 +17,13 @@ npm install compression-webpack-plugin -D
 npm run dev
 例如：
 E:\working_space\myTest\vue5\my-project>npm run dev
+
+
+
+
+
+#如果未引用其他库，或者引用出错
+#国际化
+ cnpm i vue-i18n -S
+#element
+ npm i element-ui -S
