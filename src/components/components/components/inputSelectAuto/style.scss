@@ -1,0 +1,32 @@
+@import "../../../theme/css";
+
+@mixin mixin_base() {
+  //::v-deep .el-input__inner{
+  //  $dynamic: ("big":(
+  //          "height":$big_input_height,
+  //          "line-height":$big_input_height
+  //  ), "middle":(
+  //          "height":$small_input_height,
+  //          "line-height":$small_input_height
+  //  ), "small":(
+  //          "height":$small_input_height,
+  //          "line-height":$small_input_height
+  //  ));
+  //  @include mixin-dynamic-style($dynamic: $dynamic);
+  //
+  //
+  //}
+  ::v-deep .el-input {
+    $dynamic: ("big":("width":$big_input_width), "middle":("width":$small_input_width), "small":("width":$small_input_width));
+    @include mixin-dynamic-style($dynamic: $dynamic);
+  }
+  //::v-deep .el-input__icon{
+  //  $dynamic: ("big":("line-height":$big_input_height), "middle":("line-height":$small_input_height), "small":("line-height":$small_input_height));
+  //  @include mixin-dynamic-style($dynamic: $dynamic);
+  //}
+
+}
+
+.ComponentsInputSelectAuto {
+  @include mixin_base();
+}

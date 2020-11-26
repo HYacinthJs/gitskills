@@ -1,0 +1,31 @@
+@import "../../../theme/css";
+
+
+@mixin mixin_base(){
+
+  ::v-deep input{
+
+    $dynamic: ("big":(
+            "height":$big_input_height,
+            "line-height":$big_input_height,
+            "border":$big_input_border,
+            "border-radius":$big_input_radius,
+    ), "middle":(
+            "height":$small_input_height,
+            "line-height":$small_input_height,
+            "border":$small_input_border,
+            "border-radius":$small_input_radius,
+    ), "small":(
+            "height":$small_input_height,
+            "line-height":$small_input_height,
+            "border":$small_input_border,
+            "border-radius":$small_input_radius,
+    ));
+    @include mixin-dynamic-style($dynamic: $dynamic);
+
+  }
+
+}
+.ComponentsInputImport{
+  @include mixin_base();
+}

@@ -1,0 +1,22 @@
+@import "../../../theme/css";
+@mixin mixin_base(){
+  .errorString{
+    color: #f56c6c;font-size: 12px;line-height: 1;padding-top: 4px;position: absolute;top: 100%;left: 0;
+  }
+
+  ::v-deep .el-form-item{
+    $dynamic: ("big":("margin-bottom":$big_form_margin-bottom), "middle":("margin-bottom":$small_form_margin-bottom), "small":("margin-bottom":$small_form_margin-bottom));
+    @include mixin-dynamic-style($dynamic: $dynamic);
+  }
+  ::v-deep .el-form-item__content{
+    $dynamic: ("big":("line-height":$big_button_height), "middle":("line-height":$small_button_height), "small":("line-height":$small_button_height));
+    @include mixin-dynamic-style($dynamic: $dynamic);
+  }
+  ::v-deep .el-form-item__label{
+    $dynamic: ("big":("line-height":$big_button_height), "middle":("line-height":$small_button_height), "small":("line-height":$small_button_height));
+    @include mixin-dynamic-style($dynamic: $dynamic);
+  }
+}
+.AssemblyFromSimple{
+  @include mixin_base();
+}

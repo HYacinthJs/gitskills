@@ -1,0 +1,10 @@
+@import "../../../theme/css";
+@mixin mixin_base(){
+
+    $dynamic: ("big":("width":$big_inputday_width), "middle":("width":$small_inputday_width), "small":("width":$small_inputday_width));
+    @include mixin-dynamic-style($dynamic:$dynamic);
+
+}
+.ComponentsInputDay{
+  @include mixin_base();
+}

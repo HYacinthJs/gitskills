@@ -1,0 +1,9 @@
+项目目录统一放在configure文件夹下，configure下的子目录就是一个项目
+添加新项目
+1.复制整个hndc文件夹 ，并改名例如dydq
+2.vue项目启动时设置启动哪个项目只要改 src/components/store/configSystem.ts
+import {getState} from "../../configure/hndc/state"
+改为
+import {getState} from "../../configure/dydq/state"
+
+ 具体项目配置看新建页面.txt

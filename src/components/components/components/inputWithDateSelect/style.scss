@@ -1,0 +1,12 @@
+@import "../../../theme/css";
+@mixin mixin_base(){
+
+
+  ::v-deep .el-input--mini:first-child .el-input__inner{
+      background-color: #F5F7FA
+  }
+
+}
+.ComponentsInputWithDateSelect{
+  @include mixin_base();
+}

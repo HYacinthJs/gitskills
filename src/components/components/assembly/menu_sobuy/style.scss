@@ -1,0 +1,87 @@
+@import "../../../theme/css";
+@mixin mixin_base(){
+  ::v-deep.el-scrollbar__wrap{
+    overflow: scroll;
+    overflow-x:hidden ;
+  }
+
+  .el-menu-item-group .el-menu-item{
+    font-weight:400 !important;
+    $dynamic: ("big":("font-size":$big_leftnav_fontsizemin), "middle":("font-size":$small_leftnav_fontsize), "small":("font-size":$small_leftnav_fontsizemin));
+    @include mixin-dynamic-style($dynamic: $dynamic);
+  }
+  $dynamic: (
+          "night":("background-color":$night-menu-color),
+          "day":("background-color":$day-menu-color)
+  );
+  @include mixin-dynamic-style($dynamic: $dynamic);
+
+
+
+  ::v-deep .el-menu-item, ::v-deep .el-submenu__title{
+
+    $dynamic: ("big":(
+            "width":$big_leftnav_width,
+            "font-size":$big_leftnav_fontsize,
+            "font-weight":$big_leftnav_font-weight,
+            "color":$big_leftnav_fontcolor,
+            "line-height":$big_leftnav_lineheight,
+            "height":$big_leftnav_lineheight
+    ), "middle":(
+            "width":$small_leftnav_width,
+            "font-size":$small_leftnav_fontsize,
+            "font-weight":$small_leftnav_font-weight,
+            "color":$small_leftnav_fontcolor,
+            "line-height":$small_leftnav_lineheight,
+            "height":$small_leftnav_lineheight
+    ), "small":(
+            "width":$small_leftnav_width,
+            "font-size":$small_leftnav_fontsize,
+            "font-weight":$small_leftnav_font-weight,
+            "color":$small_leftnav_fontcolor,
+            "line-height":$small_leftnav_lineheight,
+            "height":$small_leftnav_lineheight
+    ));
+    @include mixin-dynamic-style($dynamic: $dynamic);
+
+  }
+  .tools{
+    margin: 0 auto;
+    text-align: center;
+    $dynamic: ("big":("width":$big_leftnav_width), "middle":("width":$small_leftnav_width), "small":("width":$small_leftnav_width));
+    @include mixin-dynamic-style($dynamic: $dynamic);
+
+    @include mixin_clear();
+    .item{
+      color: #fff;
+      display: inline-block; justify-content: space-between;
+      //width: 25%;
+      padding: 2px;
+      //float: left;
+      //margin: 8px;
+      margin-top: 8px;
+
+    }
+
+
+    img{
+      $dynamic: ("big":(
+              "width":$big_leftnav_img_width,
+              "height":$big_leftnav_img_height
+      ), "middle":(
+              "width":$small_leftnav_img_width,
+              "height":$small_leftnav_img_height
+      ), "small":(
+              "width":$small_leftnav_img_width,
+              "height":$small_leftnav_img_height
+      ));
+      @include mixin-dynamic-style($dynamic: $dynamic);
+
+
+    }
+  }
+}
+
+.AssemblyMenu_sobuy{
+  @include mixin_base();
+}

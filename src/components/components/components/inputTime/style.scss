@@ -1,0 +1,10 @@
+@import "../../../theme/css";
+@mixin mixin_base(){
+
+
+
+
+}
+.ComponentsInputTime{
+  @include mixin_base();
+}

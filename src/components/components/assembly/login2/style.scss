@@ -1,0 +1,121 @@
+@charset "utf-8";
+@mixin mixin_base(){
+  background-color:#ccc;
+  background-image: url(/assets/base/img/bg1.jpg);
+  background-repeat:no-repeat;
+  background-position: center top;
+  overflow:hidden;
+  height: 100%;
+  .content{
+    width: 1000px;
+    height: 400px;
+    //background-color: #F2F6FC;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 5px;
+
+    .fl{float: left;}
+    .fr{float: right;}
+    .logo{
+      height: 400px;
+      line-height: 400px;
+    }
+    @font-face {
+      font-family:'圆体-简';
+      src: url('/assets/base/img/yuanti.ttf');
+    }
+    h1{
+      width: 500px;
+      color: #275938;
+      font-size: 140px;
+      margin: 0 auto;
+      padding-left: 30px;
+      font-family:"Impact";
+      transform: scale(1,1.3);
+      -ms-transform: scale(1,1.3);
+      -webkit-transform: scale(1,1.3);
+      -moz-transform: scale(1,1.3);
+      -o-transform: scale(1,1.3);
+      line-height: 180px;
+      height: 180px;
+      padding-top: 80px;
+
+    }
+    .reg{
+      font-size: 36px;
+      color: #275938;
+      margin-top: -85px;
+      margin-left: -120px !important;
+      position: relative;
+
+    }
+    .form{
+      height: 400px;
+      width: 315px;
+      padding-right: 15px;
+    }
+    .usertext{
+      width: 285px;
+      height: 50px;
+      line-height: 50px;
+      text-align: left;
+      border-radius:6px;
+      filter:alpha(Opacity=80);-moz-opacity:0.8;opacity: 0.8;
+      border: 1px solid #fff;
+      background-color: #fff;
+      outline-style: none ;
+      font-size: 24px;
+      padding-left: 10px;
+      font-family: "圆体-简";
+    }
+
+    .pd20{
+      padding-top: 20px;
+    }
+    .sysname{
+      font-family: "圆体-简";
+      font-size: 28px;
+      margin:30px 30px;
+      font-weight:bold;
+    }
+    .remeber{
+      font-size: 18px;
+      font-family: "圆体-简";
+      font-weight:bold;
+    }
+    .normal{
+      color: #473d42;
+    }
+    .btn{
+      text-align: center;
+      padding-top: 40px;
+
+    }
+
+    .btnsub{
+      width: 194px;
+      height: 52px;
+      color: #275938;
+      font-size: 26px;
+      border-radius:6px;
+      font-weight:bold;
+      filter:alpha(Opacity=90);-moz-opacity:0.9;opacity: 0.9;
+      outline-style: none;
+      border: 1px solid #fff;
+      background-color: #fff;
+      cursor: pointer;
+      font-family: "圆体-简";
+    }
+
+    input[type="checkbox"]{width:18px;height:18px;display: inline-block;text-align: center;vertical-align: middle; line-height: 18px;position: relative;}
+    input[type="checkbox"]::before{content: "";position: absolute;top: 0;left: 0;background: #fff;width: 100%;height: 100%;border: 1px solid #275938}
+    input[type="checkbox"]:checked::before{content: "\2713";background-color: #fff;position: absolute;top: 0;left: 0;width:100%;border: 1px solid #275938;color:#275938;font-size: 20px;font-weight: bold;}
+  }
+
+}
+
+.AssemblyLogin2{
+  @include mixin_base();
+}

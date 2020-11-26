@@ -1,0 +1,25 @@
+@import "../../../theme/css";
+
+@mixin mixin_base(){
+  .title{
+    @include mixin_div_center-vertical();
+    float: left;
+    margin-left: 20px;
+    color: #fff;
+
+
+  }
+  ::v-deep .el-breadcrumb{
+    $dynamic: ("big":("font-size":$big_title_font),'middle':("font-size":$small_title_font),'small':("font-size":$small_title_font));
+    @include mixin-dynamic-style($dynamic:$dynamic);
+  }
+  .btn{
+    @include mixin_div_center-vertical();
+    float: right;
+    margin-right: 20px
+  }
+}
+
+.AssemblyBreadcrumbs{
+  @include mixin_base();
+}

@@ -1,0 +1,19 @@
+alt +F12
+
+安装依赖
+
+先安装cnpm
+cnpm install
+cnpm install compression-webpack-plugin -D
+例如：
+E:\working_space\myTest\vue5\my-project>cnpm install
+E:\working_space\myTest\vue5\my-project>cnpm install compression-webpack-plugin -D
+
+如果不安装也可以
+npm install
+npm install compression-webpack-plugin -D
+
+运行
+npm run dev
+例如：
+E:\working_space\myTest\vue5\my-project>npm run dev
